@@ -1,4 +1,4 @@
-# Galvanic COmpatibility Widget
+# Galvanic Compatibility Widget
 ## Overview
 JS/React tool to visualize galvanic compatibility of two materials
 
