@@ -73,7 +73,7 @@ function CoupleCard(props) {
                     <tr>
                         <td></td>
                         <td align="center">
-                            Bare Metal Saltwater Compatibility:
+                            Sea Water (Submerged) Compatibility:
                             <br />
                             {info?.rating_sea || "-"}
                         </td>
@@ -81,13 +81,13 @@ function CoupleCard(props) {
                     </tr>
                     <tr>
                         <td align="center">
-                            Bare Metal Marine Environment Compatibility
+                            Marine Atmosphere Compatibility:
                             <br />
                             {info?.rating_ma || "-"}
                         </td>
                         <td></td>
                         <td align="center">
-                            Bare Metal Industrial Environment Compatibility
+                            Industrial Atmosphere Compatibility:
                             <br />
                             {info?.rating_ia || "-"}
                         </td>
@@ -120,17 +120,18 @@ export default class GalvanicCouples extends Component {
         const { mat1, mat2 } = this.state;
         if (mat1 === "" || mat2 === "") {
             alert("Please select two materials");
-        }
-        // get coating group for both materials
-        const grp1 = data.materials[mat1].group;
-        const grp2 = data.materials[mat2].group;
-        const sg = [grp1, grp2].sort();
+        } else {
+            // get coating group for both materials
+            const grp1 = data.materials[mat1].group;
+            const grp2 = data.materials[mat2].group;
+            const sg = [grp1, grp2].sort();
 
-        // create (A,B) key
-        const pair_key = "(".concat(sg[0], ",", sg[1], ")");
-        console.log(pair_key);
-        this.setState({ pair_key: pair_key });
-        console.log(this.state);
+            // create (A,B) key
+            const pair_key = "(".concat(sg[0], ",", sg[1], ")");
+            //console.log(pair_key);
+            this.setState({ pair_key: pair_key });
+            //console.log(this.state);
+        }
     }
 
     handleChange(e) {

@@ -1,11 +1,8 @@
 {
-  "name": "react",
+  "name": "galvanic-compatibility",
   "version": "1.0.0",
-  "description": "React example starter project",
-  "keywords": [
-    "react",
-    "starter"
-  ],
+  "description": "Development environment linked to github/edp8489/galvanic_compatibility repository",
+  "keywords": [],
   "main": "src/index.js",
   "dependencies": {
     "@emotion/react": "11.7.1",
