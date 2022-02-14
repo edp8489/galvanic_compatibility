@@ -145,6 +145,7 @@ export default class GalvanicCouples extends Component {
         return (
             <Box sx={{ bgcolor: "#D3D3D3" }}>
                 <Paper align="center" elevation={2}>
+                    <Box p={2}>
                     <Typography variant="h4">Galvanic Compatibility of Dissimilar Metals</Typography>
                     <Typography variant="h6" align="left">
                         Overview
@@ -168,9 +169,10 @@ export default class GalvanicCouples extends Component {
                     </Typography>
                     <br />
                     <Typography variant="h6">Inputs</Typography>
-                    <form onSubmit={this.handleSubmit}>
+                    </Box>
+                    <form onSubmit={this.handleSubmit} pb={2}>
                         <Grid container spacing={2}>
-                            <Grid item xs={3}>
+                            <Grid item sm>
                                 <FormControl>
                                     <label htmlFor="mat1-select">Material 1</label>
                                     <select
@@ -186,7 +188,7 @@ export default class GalvanicCouples extends Component {
                                     </select>
                                 </FormControl>
                             </Grid>
-                            <Grid item xs={3}>
+                            <Grid item sm>
                                 <FormControl>
                                     <label htmlFor="mat2-select">Material 2</label>
                                     <select
@@ -202,13 +204,14 @@ export default class GalvanicCouples extends Component {
                                     </select>
                                 </FormControl>
                             </Grid>
-                            <Grid item>
+                            <Grid item xs>
                                 <Button type="submit" variant="contained">
                                     Show Info
                                 </Button>
                             </Grid>
                         </Grid>
                     </form>
+                    <br />
                 </Paper>
                 <br />
                 <CoupleCard mat1={this.state.mat1} mat2={this.state.mat2} pair={this.state.pair_key} />
