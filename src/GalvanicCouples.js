@@ -9,6 +9,7 @@ import Button from "@mui/material/Button";
 //import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
+import Typography from "@mui/material/Typography";
 const data = require("./data/galvanic_data.json");
 
 const matl_list = Object.keys(data.materials);
@@ -20,12 +21,6 @@ function CoatingList(props) {
     var grp2 = data["materials"][props.mat2]?.["group"] || "";
     var pair_info = data["pairs"]?.[props.pair] || null;
 
-    // create array with lookup keys for the two finishes, based on sorted (A,B)
-    // pair key
-    var fin_keys = pair_info ? ["A.3.".concat(pair_info.finish_1), "A.3.".concat(pair_info.finish_2)] : null;
-    // get coating_list from data.surface_treatments based on keys in finishes
-    // var finishes = fin_keys ? [[data.surface_treatments[fin_keys[0]]], [data.surface_treatments[fin_keys[1]]]] : null;
-
     // create object containing finish lists based on material group
     // {props.pair[1] : finish_1 -> fin_key[finish_1] -> data.surface_treatments[fin_key],
     //  props.pair[3] : finish_2 -> fin_key[finish_2] -> data.surface_treatments[fin_key]}
@@ -35,25 +30,25 @@ function CoatingList(props) {
               [props.pair[3]]: data.surface_treatments["A.3.".concat(pair_info.finish_2)]
           }
         : null;
-    console.log(finishes);
+    // console.log(finishes);
 
     return (
         <Paper align="center" elevation={2}>
             <Grid container spacing={2}>
                 <Grid item md>
-                    Approved Coatings: {props.mat1}
-                    <ul style={{ "text-align": "left" }}>
-                        <li style={{ "list-style": "none" }}>(Most effective)</li>
+                    Recommended Coatings: {props.mat1}
+                    <ul style={{ textAlign: "left" }}>
+                        <li style={{ listStyle: "none" }}>(Most effective)</li>
                         {finishes ? finishes[grp1]["coating_list"].map((f, i) => <li key={i}>{f}</li>) : "..."}
-                        <li style={{ "list-style": "none" }}>(Least effective)</li>
+                        <li style={{ listStyle: "none" }}>(Least effective)</li>
                     </ul>
                 </Grid>
                 <Grid item md>
-                    Approved Coatings: {props.mat2}
-                    <ul style={{ "text-align": "left" }}>
-                        <li style={{ "list-style": "none" }}>(Most effective)</li>
+                    Recommended Coatings: {props.mat2}
+                    <ul style={{ textAlign: "left" }}>
+                        <li style={{ listStyle: "none" }}>(Most effective)</li>
                         {finishes ? finishes[grp2]["coating_list"].map((f, i) => <li key={i}>{f}</li>) : "..."}
-                        <li style={{ "list-style": "none" }}>(Least effective)</li>
+                        <li style={{ listStyle: "none" }}>(Least effective)</li>
                     </ul>
                 </Grid>
             </Grid>
@@ -64,7 +59,7 @@ function CoatingList(props) {
 function CoupleCard(props) {
     // get info for chosen pair
     var info = data.pairs[props.pair];
-    console.log(info);
+    //console.log(info);
 
     return (
         <Paper align="center" elevation={2}>
@@ -149,6 +144,29 @@ export default class GalvanicCouples extends Component {
         return (
             <Box sx={{ bgcolor: "#D3D3D3" }}>
                 <Paper align="center" elevation={2}>
+                    <Typography variant="h4">Galvanic Compatibility of Dissimilar Metals</Typography>
+                    <Typography variant="h6" align="left">
+                        Overview
+                    </Typography>
+                    <Typography variant="body1" align="left">
+                        This application aims to help visualize galvanic compatibility for material pairs per the data in
+                        MIL-STD-889-C, Dissimilar Metals. The first card recreates the information shown in Table I for the
+                        chosen material pair. The second card lists the recommended surface treatments in order of descending
+                        effectivity per Appendix A.3.
+                    </Typography>
+                    <br />
+                    <Typography variant="h6" align="left">
+                        Legend
+                    </Typography>
+                    <Typography variant="body1" align="left">
+                        I: "Incompatible" - Significant galvanic corrosion of bare (uncoated) dissimilar metal pair subject to
+                        the specific environment. <br />
+                        C: "Compatible" - Negligible galvanic interaction between bare (uncoated) dissimilar metal pair subject
+                        to the specific environment. <br />
+                        G: Signifies compatibility of bare (uncoated) same-metal couple subject to the specific environment.
+                    </Typography>
+                    <br />
+                    <Typography variant="h6">Inputs</Typography>
                     <form onSubmit={this.handleSubmit}>
                         <Grid container spacing={2}>
                             <Grid item xs={3}>
