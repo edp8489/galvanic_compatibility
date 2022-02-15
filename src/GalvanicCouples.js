@@ -143,7 +143,7 @@ export default class GalvanicCouples extends Component {
 
     render() {
         return (
-            <Box sx={{ bgcolor: "#D3D3D3" }}>
+            <Box >
                 <Paper align="center" elevation={2}>
                     <Box p={2}>
                     <Typography variant="h4">Galvanic Compatibility of Dissimilar Metals</Typography>
