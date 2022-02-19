@@ -1,11 +1,11 @@
 {
-  "author":"Eric Peters <e_peters@alum.mit.edu> (https://edp8489.github.io)",
+  "author": "Eric Peters <e_peters@alum.mit.edu> (https://edp8489.github.io)",
   "name": "galvanic-compatibility",
   "version": "1.0.0",
   "description": "Visualize galvanic corrosion potential for various metal pairs",
   "homepage": "https://edp8489.github.io/galvanic_compatibility",
   "keywords": [],
-  "license":"MIT",
+  "license": "MIT",
   "main": "src/index.js",
   "dependencies": {
     "@emotion/react": "11.7.1",

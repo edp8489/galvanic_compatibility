@@ -15,7 +15,6 @@ const data = require("./data/galvanic_data.json");
 const matl_list = Object.keys(data.materials);
 
 function CoatingList(props) {
-    //do stuff
     // get coating group for both materials
     var grp1 = data["materials"][props.mat1]?.["group"] || "";
     var grp2 = data["materials"][props.mat2]?.["group"] || "";
@@ -100,7 +99,7 @@ function CoupleCard(props) {
 
 function MaterialList(props) {
     const { mat_list } = props;
-    return mat_list.map((m) => (
+    return mat_list.sort().map((m) => (
         <option key={m} value={m}>
             {m}
         </option>
