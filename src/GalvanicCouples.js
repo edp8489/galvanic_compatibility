@@ -41,6 +41,10 @@ function CoatingList(props) {
                         {finishes ? finishes[grp1]["coating_list"].map((f, i) => <li key={i}>{f}</li>) : "..."}
                         <li style={{ listStyle: "none" }}>(Least effective)</li>
                     </ul>
+                    Additional Notes:
+                    <ul style={{ textAlign: "left" }}>
+                    {finishes ? finishes[grp1]["notes"].map((f, i) => <li key={i}>{f}</li>) : "..."}
+                    </ul>
                 </Grid>
                 <Grid item md>
                     Recommended Coatings: {props.mat2}
@@ -48,6 +52,10 @@ function CoatingList(props) {
                         <li style={{ listStyle: "none" }}>(Most effective)</li>
                         {finishes ? finishes[grp2]["coating_list"].map((f, i) => <li key={i}>{f}</li>) : "..."}
                         <li style={{ listStyle: "none" }}>(Least effective)</li>
+                    </ul>
+                    Additional Notes:
+                    <ul style={{ textAlign: "left" }}>
+                    {finishes ? finishes[grp2]["notes"].map((f, i) => <li key={i}>{f}</li>) : "..."}
                     </ul>
                 </Grid>
             </Grid>
@@ -102,6 +110,15 @@ function MaterialList(props) {
     return mat_list.sort().map((m) => (
         <option key={m} value={m}>
             {m}
+        </option>
+    ));
+}
+
+function NotesList(props) {
+    const { notes } = props;
+    return notes.map((n) => (
+        <option key={n} value={n}>
+            {n}
         </option>
     ));
 }
@@ -163,9 +180,9 @@ export default class GalvanicCouples extends Component {
                         Legend
                     </Typography>
                     <Typography variant="body1" align="left">
-                        I: "Incompatible" - Significant galvanic corrosion of bare (uncoated) dissimilar metal pair subject to
+                        I: "Incompatible" - Signifies significant galvanic corrosion will occur between bare (uncoated) dissimilar metal pair subject to
                         the specific environment. <br />
-                        C: "Compatible" - Negligible galvanic interaction between bare (uncoated) dissimilar metal pair subject
+                        C: "Compatible" - Signifies negligible galvanic interaction will occur between bare (uncoated) dissimilar metal pair subject
                         to the specific environment. <br />
                         G: Signifies compatibility of bare (uncoated) same-metal couple subject to the specific environment.
                     </Typography>
