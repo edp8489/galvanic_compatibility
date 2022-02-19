@@ -118,7 +118,8 @@ export default class GalvanicCouples extends Component {
         e.preventDefault();
         const { mat1, mat2 } = this.state;
         if (mat1 === "" || mat2 === "") {
-            alert("Please select two materials");
+            // do nothing
+            // alert("Please select two materials");
         } else {
             // get coating group for both materials
             const grp1 = data.materials[mat1].group;
@@ -138,6 +139,8 @@ export default class GalvanicCouples extends Component {
         var newState = this.state;
         newState[name] = value;
         this.setState(newState);
+
+        this.handleSubmit(e)
     }
 
     render() {
@@ -169,7 +172,7 @@ export default class GalvanicCouples extends Component {
                     <br />
                     <Typography variant="h6">Inputs</Typography>
                     </Box>
-                    <form onSubmit={this.handleSubmit} pb={2}>
+                    <form pb={2}>
                         <Grid container spacing={2}>
                             <Grid item sm>
                                 <FormControl>
@@ -202,11 +205,6 @@ export default class GalvanicCouples extends Component {
                                         <MaterialList mat_list={matl_list} />
                                     </select>
                                 </FormControl>
-                            </Grid>
-                            <Grid item xs>
-                                <Button type="submit" variant="contained">
-                                    Show Info
-                                </Button>
                             </Grid>
                         </Grid>
                     </form>
