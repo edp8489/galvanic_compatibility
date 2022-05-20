@@ -11,7 +11,7 @@ const buttonSVG = <svg viewBox="0 0 32 32" width="24" height="24" fill="currentc
                     </path>
                 </svg>
 
-export default function NavBar(props){
+export function NavBar(props){
     const {themeToggle} = props
     return(
         <React.Fragment>
