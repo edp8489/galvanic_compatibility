@@ -32,7 +32,7 @@ function CoatingList(props) {
     // console.log(finishes);
 
     return (
-        <Paper align="center" elevation={2}>
+        <Paper align="center" elevation={3} sx={{ padding:"10px" }}>
             <Grid container spacing={2}>
                 <Grid item md>
                     Recommended Coatings: {props.mat1}
@@ -69,7 +69,7 @@ function CoupleCard(props) {
     //console.log(info);
 
     return (
-        <Paper align="center" elevation={2}>
+        <Paper align="center" elevation={3} sx={{ padding:"10px" }}>
             <table>
                 <tbody>
                     <tr>
@@ -163,7 +163,7 @@ export default class GalvanicCouples extends Component {
     render() {
         return (
             <Box >
-                <Paper align="center" elevation={2}>
+                <Paper align="center" elevation={3} sx={{ marginTop: "20px", padding:"10px" }}>
                     <Box p={2}>
                     <Typography variant="h4">Galvanic Compatibility of Dissimilar Metals</Typography>
                     <Typography variant="h6" align="left">
