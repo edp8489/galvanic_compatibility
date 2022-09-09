@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/galvanic_compatibility/static/js/main.6a2136dc.js",
+    "main.js": "/galvanic_compatibility/static/js/main.a634a5d6.js",
     "index.html": "/galvanic_compatibility/index.html",
-    "main.6a2136dc.js.map": "/galvanic_compatibility/static/js/main.6a2136dc.js.map"
+    "main.a634a5d6.js.map": "/galvanic_compatibility/static/js/main.a634a5d6.js.map"
   },
   "entrypoints": [
-    "static/js/main.6a2136dc.js"
+    "static/js/main.a634a5d6.js"
   ]
 }
