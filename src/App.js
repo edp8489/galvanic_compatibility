@@ -6,6 +6,13 @@ import CssBaseline from "@mui/material/CssBaseline";
 import {light, dark} from "./styles.js";
 import {NavBar, Footer} from "./NavBar";
 
+// analytics
+import TagManager from 'react-gtm-module'
+const tagManagerArgs = {
+    gtmId: 'GTM-TTMV4VF'
+}
+TagManager.initialize(tagManagerArgs)
+
 const customTheme = createTheme({
     palette: {
         background: {
